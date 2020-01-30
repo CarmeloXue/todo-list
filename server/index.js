@@ -8,7 +8,7 @@ const mongoose = require("mongoose");
 const cors = require("@koa/cors");
 const body = require("koa-body");
 
-mongoose.connect("mongodb://ec2-52-221-181-89.ap-southeast-1.compute.amazonaws.com:27017/demo", { useNewUrlParser: true });
+mongoose.connect("mongodb://127.0.0.1:27017/demo", { useNewUrlParser: true });
 
 app.use(cors());
 app.use(body());
