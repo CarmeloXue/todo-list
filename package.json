@@ -1,0 +1,53 @@
+{
+  "name": "demo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/plugin-proposal-decorators": "^7.8.3",
+    "@koa/cors": "2",
+    "axios": "^0.19.2",
+    "babel-loader": "^8.0.6",
+    "bootstrap": "^4.4.1",
+    "ejs": "^3.0.1",
+    "html-webpack-plugin": "^3.2.0",
+    "koa": "^2.11.0",
+    "koa-body": "^4.1.1",
+    "koa-router": "^8.0.6",
+    "koa-static": "^5.0.0",
+    "koa-views": "^6.2.1",
+    "mobx": "^5.15.4",
+    "mobx-react": "^6.1.4",
+    "mongoose": "^5.8.10",
+    "rea": "^0.0.1",
+    "react": "^16.12.0",
+    "react-bootstrap": "^1.0.0-beta.16",
+    "react-dom": "^16.12.0",
+    "react-router-dom": "^5.1.2",
+    "webpack": "^4.41.5",
+    "webpack-dev-server": "^3.10.1"
+  },
+  "babel": {
+    "plugins": [
+      [
+        "@babel/plugin-proposal-decorators",
+        {
+          "legacy": true
+        }
+      ]
+    ],
+    "presets": [
+      "react-app"
+    ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.3",
+    "babel-preset-react-app": "^9.1.0",
+    "webpack-cli": "^3.3.10"
+  },
+  "scripts": {
+    "build": "webpack",
+    "dev": "webpack-dev-server --config webpack.dev.config.js",
+    "serve": "node server/index.js"
+  }
+}
