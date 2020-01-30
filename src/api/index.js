@@ -1,7 +1,8 @@
 import axios from "axios";
 
 const requset = axios.create({
-  baseURL: "http://localhost:3389"
+    //just convienince to debug locally and online
+  baseURL: "http://127.0.0.1:3389"
 });
 export const getListByPagination = (pageIndex, pageSize) => {
   return requset.get("/api/v1/persons");
