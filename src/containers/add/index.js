@@ -35,7 +35,6 @@ export const AddContainer = props => {
         <Form.Group controlId="name">
           <Form.Label>Username</Form.Label>
           <Form.Control
-            type="email"
             placeholder="Enter username"
             value={name}
             onChange={e => setName(e.target.value)}
@@ -44,7 +43,6 @@ export const AddContainer = props => {
         <Form.Group controlId="phone">
           <Form.Label>Phone</Form.Label>
           <Form.Control
-            type="password"
             placeholder="Pure phone without area code"
             value={phone}
             onChange={e => setPhone(e.target.value)}
