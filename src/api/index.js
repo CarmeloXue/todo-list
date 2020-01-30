@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const requset = axios.create({
-  baseURL: "http://localhost:3000"
+  baseURL: "http://localhost:3389"
 });
 export const getListByPagination = (pageIndex, pageSize) => {
   return requset.get("/api/v1/persons");
