@@ -1,7 +1,14 @@
 import React from "react";
 import { inject, observer } from "mobx-react";
 import { Link } from "react-router-dom";
-import { Row, Container, Col, ListGroup, Button } from "react-bootstrap";
+import {
+  Row,
+  Container,
+  Col,
+  ListGroup,
+  Button,
+  Spinner
+} from "react-bootstrap";
 
 @inject("listStore")
 @observer
@@ -16,8 +23,11 @@ export class ListContainer extends React.Component {
 
   renderContent = () => {
     const {
-      listStore: { list }
+      listStore: { list, loading }
     } = this.props;
+
+    if (loading)
+      return <Spinner animation="border" size="lg" variant="primary" />;
 
     if (list.length === 0) return <div>ops, no data avaliable here</div>;
 
@@ -35,14 +45,14 @@ export class ListContainer extends React.Component {
   render() {
     return (
       <Container>
-        <Row>
+        <Row className="c_row">
           <Col lg={8} md={8} sm={10}>
             <Link to="/add">
               <Button variant="primary">Add</Button>
             </Link>
           </Col>
         </Row>
-        <Row>
+        <Row className="c_row">
           <Col lg={8} md={8} sm={10}>
             {this.renderContent()}
           </Col>

@@ -1,4 +1,4 @@
-import { observable, action, flow } from "mobx";
+import { observable, action, flow, computed } from "mobx";
 import { getListByPagination } from "../api/index";
 
 class List {
@@ -8,6 +8,10 @@ class List {
 
   @observable isRequesting = false;
 
+  @computed get loading() {
+    return this.isRequesting && this.list.length === 0;
+  }
+
   @observable list = [];
 
   @action.bound
@@ -16,7 +20,7 @@ class List {
   @action.bound
   retrieveList = flow(function*() {
     if (!this.isRequesting) {
-        this.isRequesting = true
+      this.isRequesting = true;
       try {
         const repAsync = yield getListByPagination();
         if (repAsync.status === 200)
@@ -24,7 +28,7 @@ class List {
       } catch (err) {
         console.error(err);
       } finally {
-          this.isRequesting = false
+        this.isRequesting = false;
       }
     }
   });
